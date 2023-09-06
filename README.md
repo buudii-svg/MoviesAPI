@@ -1,14 +1,14 @@
-Movie API
+# Movie API
 The Movie API is a RESTful web service that allows users to manage and retrieve information about movies and genres. This API is built using ASP.NET Core and Entity Framework Core, providing a robust and extensible platform for movie-related operations.
 
 
-Features
+# Features
 Movie Management: Create, read, update, and delete movies.
 Genre Management: Create, read, update, and delete genres.
 Filtering: Get movies by genre.
 Swagger Documentation: Interactive API documentation using Swagger.
 JWT Authentication: Secure endpoints using JWT Bearer authentication.
-Database Integration: Store movie and genre data in a SQL Server database.
+Database Integration: Store movie and genre data in an SQL Server database.
 Data Validation: Implement data validation using DataAnnotations.
 Cross-Origin Resource Sharing (CORS): Allow requests from any origin.
 Getting Started
@@ -39,10 +39,10 @@ Copy code
 dotnet run
 The API will be accessible at https://localhost:5001 by default.
 
-Usage
+# Usage
 You can use this API to perform various movie and genre-related operations. The API documentation, available via Swagger, provides detailed information on the available endpoints and how to use them.
 
-Endpoints
+# Endpoints
 GET /api/movies: Get a list of all movies.
 GET /api/movies/{id}: Get a movie by its ID.
 POST /api/movies: Create a new movie.
@@ -56,7 +56,7 @@ DELETE /api/genres/{id}: Delete a genre by its ID.
 GET /api/movies/GetMoviesByGenre/{genreId}: Get movies by genre.
 For detailed documentation, run the project and access the Swagger UI at https://localhost:5001/swagger.
 
-Authentication
+# Authentication
 This API uses JWT Bearer authentication. To access secured endpoints, you need to include a valid JWT token in the Authorization header of your requests. You can obtain a token by following the authentication process documented in Swagger.
 
 Contributing

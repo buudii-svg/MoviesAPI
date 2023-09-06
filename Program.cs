@@ -1,23 +1,18 @@
-using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using MoviesAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
-
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddCors();
 builder.Services.AddSwaggerGen(options =>
-
    {
        //For security
        options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -51,6 +46,7 @@ builder.Services.AddSwaggerGen(options =>
 );
 
 builder.Services.AddTransient<IGenreService, GenreService>();
+builder.Services.AddTransient<IMovieService, MovieService>();
 
 var app = builder.Build();
 
@@ -63,7 +59,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-//yofdl enha tb2a fo2 al authorization
+//preferable to use above the authorization
 app.UseCors(options => options.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
 app.UseAuthorization();
